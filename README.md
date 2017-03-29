@@ -4,7 +4,7 @@
 <p>Para esse estudo foram utilizadas:</p>
 
 <div>
-    <strong>Front-end:</strong> bibliotas Bootstrap e React JS
+    <strong>Front-end:</strong> bibliotecas Bootstrap e React JS
 </div>
 
 <div>
