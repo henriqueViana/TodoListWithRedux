@@ -5,7 +5,7 @@ export default props => (
         <div className='container'>
             <div className='navbar-header'>
                 <a className='navbar-brand' href='#'>
-                    <i className='fa fa-calendar-check-o'></i> TodoList App
+                    <i className='fa fa-calendar-check-o'></i> TodoListWithRedux App
                 </a>
             </div>
 
