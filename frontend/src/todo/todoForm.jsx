@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import Grid from '../template/grid';
 import IconButton from '../template/iconButton';
-import { changedDescription, search, add } from './todoActions';
+import { changedDescription, search, add, clearSearch } from './todoActions';
 
 class TodoForm extends Component {
 
@@ -19,18 +19,18 @@ class TodoForm extends Component {
     }
 
     keyHandler(e) {
-        const {add, search, description} = this.props;
+        const {add, search, description, clearSearch} = this.props;
 
         if(e.key === 'Enter') {
-            e.shiftKey ? search() : add(description)
+            e.shiftKey ? search(description) : add(description)
         } else if(e.key === 'Escape') {
-            this.props.handleClear()
+            clearSearch()
         }
     }
 
     render() {
 
-        const {add, search, description} = this.props;
+        const {add, search, description, clearSearch} = this.props;
         return(
             <div role='form' className='todoForm'>
 
@@ -40,8 +40,8 @@ class TodoForm extends Component {
                 
                 <Grid cols='12 3 2'>
                     <IconButton style='primary' icon='plus' onClick={() => add(description)} />
-                    <IconButton style='info' icon='search' onClick={() => search()} />
-                    <IconButton style='default' icon='close' onClick={this.props.handleClear} />
+                    <IconButton style='info' icon='search' onClick={() => search(description)} />
+                    <IconButton style='default' icon='close' onClick={clearSearch} />
                 </Grid>
 
             </div>
@@ -53,6 +53,6 @@ class TodoForm extends Component {
 
 const mapStateToProps = state => ({ description: state.todo.description });
 
-const mapDispatchToProps = dispatch => (bindActionCreators({ changedDescription, search, add } , dispatch))
+const mapDispatchToProps = dispatch => (bindActionCreators({ changedDescription, search, add, clearSearch } , dispatch))
 
 export default connect(mapStateToProps , mapDispatchToProps)(TodoForm) 
