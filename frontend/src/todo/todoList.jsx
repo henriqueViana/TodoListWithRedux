@@ -10,7 +10,6 @@ import '../template/todoListStyle.css';
 
 const TodoList = props => {
 
-    console.log(props);
     const renderRows = () => {
         
         const list = props.list || [];
